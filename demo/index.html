@@ -85,15 +85,20 @@ export  $initHighlight;\n\
 ";
 
 $(function(){
-	var htmlTxt = FastMarkDown(test_txt);
-	$("#preview").html(htmlTxt);
-	var $codes = $("pre code");
-	$codes.each(function(j, code) {
-		var $code = $(code);
-		if (!$code.hasClass('hljs')) {
-			hljs.highlightBlock($code.get(0));
-		}
-	});
+    var startTime = Date.now();
+    for (var i = 0; i < 10000; i++) {
+        var htmlTxt = FastMarkDown(test_txt);
+        // $("#preview").html(htmlTxt);
+    }
+    var endTime = Date.now();
+    console.log("cost time:",endTime-startTime);
+	// var $codes = $("pre code");
+	// $codes.each(function(j, code) {
+	// 	var $code = $(code);
+	// 	if (!$code.hasClass('hljs')) {
+	// 		hljs.highlightBlock($code.get(0));
+	// 	}
+	// });
 });
 
 

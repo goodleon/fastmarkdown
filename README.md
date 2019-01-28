@@ -1,7 +1,6 @@
 # fast-markdown-js
 Yet another Markdown parser, this time for JavaScript. 
-It is faster then [markdown-js](https://github.com/evilstreak/markdown-js);
-
+It is a fastest JavaScript Markdown parser.
 
 # Usage
 
@@ -17,6 +16,11 @@ var md_txt = "\
 var htmlTxt = FastMarkDown(md_txt);
 $("#preview").html(htmlTxt);
 ```
+
+# test parse Speed
+
+**10000 times** just cost **1637 millisecond**.
+[markdown-js](https://github.com/evilstreak/markdown-js): 100 times cost 10 second
 
 ```
 var test_txt = "\
@@ -88,5 +92,14 @@ export  $initHighlight;\n\
 >这是引用的内容\n\
 \
 ";
+
+	var startTime = Date.now();
+    for (var i = 0; i < 10000; i++) {
+        var htmlTxt = FastMarkDown(test_txt);
+        // $("#preview").html(htmlTxt);
+    }
+    var endTime = Date.now();
+    console.log("cost time:",endTime-startTime);
+    //cost time:1637 millisecond
 
 ```
